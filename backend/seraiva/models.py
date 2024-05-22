@@ -5,7 +5,7 @@ from django.utils import timezone
 
 # Create your models here.
 
-RANK = {
+JOB = {
     ('0','user'),
     ('1','librarian'),
     ('2','author'),
@@ -14,12 +14,10 @@ RANK = {
 
 class CustomUser(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField("email address", unique=True)
+    phoneNumber = models.CharField(max_length=15)
+    job= models.CharField(max_length=30, choices=JOB)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    date_joined = models.DateTimeField(default=timezone.now)
-    registrationNumber = models.CharField(max_length=30)
-    phoneNumber = models.CharField(max_length=15, null=True, blank=True)
-    is_email_verified = models.BooleanField(default=False)
     
     USERNAME_FIELD = "email" #substituir o login username por e-mail
     REQUIRED_FIELDS = []
@@ -29,13 +27,13 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
     def __str__(self):
         return self.email    
 
-# class Author(models.Model):
-#     customUserFK = models.ForeignKey(CustomUser, related_name='customUserAuthorFK',on_delete=models.CASCADE)
-#     picture = models.CharField(max_length=500)
-#     biography= models.TextField()
+class Author(models.Model):
+    customUserFK = models.ForeignKey(CustomUser, related_name='customUserAuthorFK',on_delete=models.CASCADE)
+    picture = models.CharField(max_length=500)
+    biography= models.TextField()
 
-#     def __str__(self):
-#         return self.customUserFK.name
+    def __str__(self):
+        return self.customUserFK.email
 
 
 
@@ -88,6 +86,9 @@ class Borrowing(models.Model):
     borrowingDate = models.DateField(auto_now=True)
     devolutionDate = models.DateField()
     returnedDate = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.bookFK.name
 
 
     
