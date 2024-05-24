@@ -9,16 +9,16 @@
             <Checkbox :binary="true" :readonly="true"/>
         </div>
         <div class="book-image">
-            <img :src="bookInformation.image"/>
+            <img :src="bookInformation[0].image"/>
         </div>
         <div>
-            <h4 class="book-name">{{ bookInformation.name }}</h4>
+            <h4 class="book-name">{{ bookInformation[0].name }}</h4>
         </div>
         <div class="flex flex-row">
-            <span class="price-text">Preço: R${{ bookInformation.price }}</span>
+            <span class="price-text">Preço: R${{ bookInformation[0].price }}</span>
             <div class="m1-2">
                 <label class="quantity"> Qtd. Disponível:</label>
-                <span class="quantity">{{ bookInformation.amount }}</span>
+                <span class="quantity">{{ bookInformation[0].amount }}</span>
             </div>
         </div>
         <Button class="add-button">Emprestar</Button>
