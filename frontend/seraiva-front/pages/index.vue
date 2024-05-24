@@ -14,7 +14,7 @@
     </main>
 </template>
 
-<style>
+<style scoped lang="scss">
 
     .flex-center{
         display: flex;
