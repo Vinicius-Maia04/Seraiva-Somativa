@@ -1,6 +1,10 @@
 <script setup>
-    const route = useRoute();
-    const { data: bookInformation} = await useFetch(`http://127.0.0.1:8000/book/`);
+    
+    const prop = defineProps({
+        index: {type: String}
+    })
+
+    const { data: bookInformation} = await useFetch(`http://127.0.0.1:8000/book/${prop.index}`);
 </script>
 
 <template>
@@ -9,16 +13,18 @@
             <Checkbox :binary="true" :readonly="true"/>
         </div>
         <div class="book-image">
-            <img :src="bookInformation.image"/>
+            <nuxt-link :to="`/bookDesc/${bookInformation.id}`">
+                <img :src="bookInformation.image"/>
+            </nuxt-link>
         </div>
         <div>
-            <h4 class="book-name">{{ bookInformation[0].name }}</h4>
+            <h4 class="book-name">{{ bookInformation.name }}</h4>
         </div>
         <div class="flex flex-row">
-            <span class="price-text">Preço: R${{ bookInformation[0].price }}</span>
+            <span class="price-text">Preço: R${{ bookInformation.price }}</span>
             <div class="m1-2">
                 <label class="quantity"> Qtd. Disponível: </label>
-                <span class="quantity">{{ bookInformation[0].amount }}</span>
+                <span class="quantity">{{ bookInformation.amount }}</span>
             </div>
         </div>
         <Button class="add-button">Emprestar</Button>
