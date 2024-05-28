@@ -1,6 +1,7 @@
 from .models import *
 from .serializers import *
 from rest_framework.viewsets import ModelViewSet
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Create your views here.
 
@@ -15,10 +16,14 @@ class AuthorAPIView(ModelViewSet):
 class CategoryAPIView(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name']
 
 class BookAPIView(ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name', 'categoryFK']
 
 class BorrowingAPIView(ModelViewSet):
     queryset = Borrowing.objects.all()

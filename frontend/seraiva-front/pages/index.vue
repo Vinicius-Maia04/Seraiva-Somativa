@@ -6,7 +6,7 @@
     <main class="home-container flex-center">
         <h2 class="mt-4 mb-4">Nossa Biblioteca</h2>
         <div class="lib">
-            <div v-for="(b) in bookInformation">
+            <div v-for="b in bookInformation" :key="b.id">
                 <BookCard :index="b.id"/>
             </div>
         </div>

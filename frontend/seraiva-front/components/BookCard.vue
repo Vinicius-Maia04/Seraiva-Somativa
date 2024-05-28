@@ -43,8 +43,8 @@
     .card{
         width: 300px;
         max-width: 300px;
-        height: 350px;
-        max-height: 350px;
+        height: 400px;
+        max-height: 400px;
         background-color: rgb(31, 31, 31);
         border-radius: 0.5rem;
         margin: 1.5rem;
@@ -52,19 +52,17 @@
 
         &:hover{
             transform: scale(1.1);
-            box-shadow: 0px 0px 50px rgb(144, 0, 255);
+            box-shadow: 0px 0px 50px white;
         }
 
 
         .book-image{
-            width: 90%;
-            height: 55%;
-            max-width: 200px;
-            max-height: 230px;
+            width: fit-content;
+            height: fit-content;
 
             img{
-                width: 100%;
-                height: 100%;
+                width: 136px;
+                height: 200px;
             }
         }
 
@@ -78,6 +76,7 @@
             height: 2rem;
             margin: 1rem;
             color: white;
+            font-weight: bold;
             background-color: black;
             border: 0;
             border-radius: 5px;
@@ -85,8 +84,10 @@
             cursor: pointer;
             
             &:hover{
-                background-color: rgb(144, 0, 255);
-                box-shadow: 0px 0px 25px rgb(144, 0, 255);
+                color: black;
+                font-weight: bold;
+                background-color: white;
+                box-shadow: 0px 0px 25px white;
             }
         }
 
