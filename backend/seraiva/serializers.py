@@ -14,6 +14,7 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class BookSerializer(serializers.ModelSerializer):
+    categoryFK = CategorySerializer(read_only=True)
     class Meta:
         many = True
         model = Book

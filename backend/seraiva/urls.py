@@ -5,7 +5,7 @@ router = DefaultRouter()
 
 router.register(r'customuser', CustomUserAPIView)
 router.register(r'author', AuthorAPIView)
-router.register(r'categoty', CategoryAPIView)
+router.register(r'category', CategoryAPIView)
 router.register(r'book', BookAPIView)
 router.register(r'borrowing', BorrowingAPIView)
 
