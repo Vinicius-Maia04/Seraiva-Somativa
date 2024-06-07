@@ -67,7 +67,7 @@ class Book(models.Model):
     categoryFK = models.ForeignKey(Category, related_name="BookCategoryFK", on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     image = models.CharField(max_length=500)
-    description = models.CharField(max_length=500)
+    description = models.TextField()
     amount = models.IntegerField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     pages = models.IntegerField()

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 //as props definem as informações que VEM de fora para dentro do componente
 const props = defineProps({
     label: {type: String, required: true},
@@ -23,6 +23,7 @@ const model = defineModel();
         width: 100%;
         color: black;
         font-weight: bold;
+        transition: 0.3s;
     }    
    
     input{
@@ -31,10 +32,10 @@ const model = defineModel();
         border: 0;
         border-bottom: solid black;
         font-size:20px;
+        transition: 0.3s;
         &:focus{
             outline: 0;
-            border-color: rgb(93, 0, 164);
-            transition: 0.3s;
+            border-color: rgb(144, 0, 255);
         }
     }
 }

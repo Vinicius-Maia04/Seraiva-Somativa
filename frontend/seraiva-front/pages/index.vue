@@ -1,26 +1,31 @@
-<script>
-
+<script setup>
+    const { data: bookInformation} = await useFetch(`http://127.0.0.1:8000/book/`);
 </script>
 
 <template>
     <main class="home-container flex-center">
         <h2 class="mt-4 mb-4">Nossa Biblioteca</h2>
-        <Toast/>
-        <div class="grid align-items-center justify-content-center">
-            <div>
-                <BookCard/>
+        <div class="lib">
+            <div v-for="b in bookInformation" :key="b.id">
+                <BookCard :index="b.id"/>
             </div>
         </div>
     </main>
 </template>
 
-<style>
+<style scoped lang="scss">
 
     .flex-center{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+    }
+
+    .lib{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .home-container{
@@ -32,9 +37,5 @@
         h2{
             color: white;
         }
-    }
-
-    .p-toast-summary{
-        padding: 1.5rem !important;
     }
 </style>
