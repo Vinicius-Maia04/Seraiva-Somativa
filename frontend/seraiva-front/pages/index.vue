@@ -1,8 +1,5 @@
 <script setup>
     const { data: bookInformation} = await useFetch(`https://seraiva-somativa-production.up.railway.app/book/`);
-    definePageMeta({
-        middleware: 'auth'
-    })
 </script>
 
 <template>

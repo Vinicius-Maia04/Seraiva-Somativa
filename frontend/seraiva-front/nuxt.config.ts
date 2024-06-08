@@ -4,7 +4,9 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true
   },
-  modules: ['@sidebase/nuxt-auth', "vue-tsc"],
+  modules: [
+    '@sidebase/nuxt-auth', 
+    ],
   css:[
     '~/assets/style/global-project.scss',
     '~/assets/style/global-variables.scss'
