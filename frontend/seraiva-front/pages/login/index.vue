@@ -1,4 +1,13 @@
-<script setup>
+<script setup lang="ts">
+    import { reactive } from 'vue';
+    const credentials = reactive({
+        email: '',
+        password: ''
+    });
+
+    const submitLogin = () => {
+        console.log('Login: ', credentials);
+    }
 
 </script>
 
@@ -13,12 +22,12 @@
                 <h1>Seraiva</h1>
                 <form class="login-form">
                     <div class="input-container">
-                        <CustomInput type="email" label="LOGIN" inputId="user-login"/>
+                        <CustomInput v-model="credentials.email" type="email" label="LOGIN" inputId="user-login"/>
                     </div>
                     <div class="input-container">
-                        <CustomInput type="password" label="SENHA" inputId="pass-login"/>
+                        <CustomInput v-model="credentials.password" type="password" label="SENHA" inputId="pass-login"/>
                     </div>
-                    <button type="submit" class="customButtom">Entrar</button>
+                    <button @click="submitLogin" class="customButtom">Entrar</button>
                 </form>
             </div>
         </section>
