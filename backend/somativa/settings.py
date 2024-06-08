@@ -25,7 +25,15 @@ SECRET_KEY = 'django-insecure-morw^n0)h@kaht+2ox=q#y2c_$(ph=64v#c^vy7lpb(z056f!t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+production_server = 'seraiva-somativa-production.up.railway.app'
+
+ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://localhost',
+    '127.0.0.1',
+    'https://' + production_server,
+]
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True

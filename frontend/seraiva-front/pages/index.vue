@@ -1,5 +1,5 @@
 <script setup>
-    const { data: bookInformation} = await useFetch(`http://127.0.0.1:8000/book/`);
+    const { data: bookInformation} = await useFetch(`seraiva-somativa-production.up.railway.app/book/`);
 </script>
 
 <template>
