@@ -1,6 +1,6 @@
 <script setup>
     const route = useRoute();
-    const {data: bookFound} = await useFetch(`https://seraiva-somativa-production.up.railway.app/book/${route.params.id}`);
+    const {data: bookFound} = await useFetch(`https://https://seraiva-somativa-production.up.railway.app/api/auth/book/${route.params.id}`);
 </script>
 
 <template>
