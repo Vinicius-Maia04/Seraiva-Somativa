@@ -27,7 +27,8 @@
                 <span class="quantity">{{ bookInformation.amount }}</span>
             </div>
         </div>
-        <Button class="add-button">Emprestar</Button>
+        <Button class="add-button" v-if="bookInformation.amount >= 1">Emprestar</Button>
+        <Button class="unavailable-button" v-if="bookInformation.amount <= 0">Indisponível</Button>
     </section>
 </template>
 
@@ -88,6 +89,26 @@
                 font-weight: bold;
                 background-color: white;
                 box-shadow: 0px 0px 25px white;
+            }
+        }
+
+        .unavailable-button{
+            width: 80%;
+            height: 2rem;
+            margin: 1rem;
+            color: white;
+            font-weight: bold;
+            background-color: black;
+            border: 0;
+            border-radius: 5px;
+            transition: 0.5s;
+            cursor: pointer;
+            
+            &:hover{
+                color: white;
+                font-weight: bold;
+                background-color: red;
+                box-shadow: 0px 0px 25px red;
             }
         }
 

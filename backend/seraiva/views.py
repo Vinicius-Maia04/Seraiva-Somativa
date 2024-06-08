@@ -20,7 +20,7 @@ class CategoryAPIView(ModelViewSet):
     filterset_fields = ['name']
 
 class BookAPIView(ModelViewSet):
-    queryset = Book.objects.all()
+    queryset = Book.objects.filter(stats=3)
     serializer_class = BookSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['name', 'categoryFK']

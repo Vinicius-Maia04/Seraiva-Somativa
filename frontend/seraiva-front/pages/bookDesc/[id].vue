@@ -30,7 +30,8 @@
                 <br>
                 <h3>{{ bookFound.description }}</h3>
             </div>
-            <button class="customButtom">Emprestar</button>
+            <Button class="add-button" v-if="bookFound.amount >= 1">Emprestar</Button>
+            <Button class="unavailable-button" v-if="bookFound.amount <= 0">Indisponível</Button>
         </div>
     </section>
 </template>
@@ -71,7 +72,7 @@
             }
         }
 
-        .customButtom{
+        .add-button{
             margin-top: 30px;
             color: white;
             font-size: large;
@@ -88,6 +89,28 @@
                 color: black;
                 box-shadow: 0px 0px 15px white;
                 background-color: white;
+                transform: scale(1.1);
+            }
+
+        }
+
+        .unavailable-button{
+            margin-top: 30px;
+            color: white;
+            font-size: large;
+            font-weight: bold;
+            background-color: black;
+            border-radius: 3px;
+            border-width: 0;
+            width: 75%;
+            height: 10%;
+            transition: 0.5s;
+
+            &:hover{
+                cursor: pointer;
+                color: white;
+                box-shadow: 0px 0px 15px red;
+                background-color: red;
                 transform: scale(1.1);
             }
 

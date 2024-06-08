@@ -13,7 +13,9 @@ JOB = {
 }
 
 class CustomUser(AbstractBaseUser,PermissionsMixin):
+    name = models.CharField(max_length=250)
     email = models.EmailField("email address", unique=True)
+    picture = models.CharField(max_length=500)
     phoneNumber = models.CharField(max_length=15)
     job= models.CharField(max_length=30, choices=JOB)
     is_staff = models.BooleanField(default=False)
@@ -29,7 +31,7 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
 
 class Author(models.Model):
     customUserFK = models.ForeignKey(CustomUser, related_name='customUserAuthorFK',on_delete=models.CASCADE)
-    picture = models.CharField(max_length=500)
+    pictureFK = models.ForeignKey(CustomUser, related_name='customUserPictureFK', on_delete=models.CASCADE)
     biography= models.TextField()
 
     def __str__(self):
@@ -66,6 +68,7 @@ class Book(models.Model):
     # userFK
     categoryFK = models.ForeignKey(Category, related_name="BookCategoryFK", on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    authorFK = models.ForeignKey(CustomUser, related_name="BookAuthorFK", on_delete=models.CASCADE)
     image = models.CharField(max_length=500)
     description = models.TextField()
     amount = models.IntegerField()
@@ -82,7 +85,7 @@ class Book(models.Model):
     
 class Borrowing(models.Model):
     bookFK = models.ForeignKey(Book,related_name="bookFKBorrowing",on_delete=models.CASCADE)
-    # userFK
+    userFK = models.ForeignKey(CustomUser, related_name="userFKBorrowing",on_delete=models.CASCADE)
     borrowingDate = models.DateField(auto_now=True)
     devolutionDate = models.DateField()
     returnedDate = models.DateTimeField(null=True, blank=True)

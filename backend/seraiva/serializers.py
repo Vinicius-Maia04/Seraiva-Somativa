@@ -1,6 +1,12 @@
 from rest_framework import serializers
 from .models import *
 
+class CustomUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        many = True
+        model = CustomUser
+        fields = '__all__'
+
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         many = True
@@ -24,10 +30,4 @@ class BorrowingSerializer(serializers.ModelSerializer):
     class Meta:
         many = True
         model = Borrowing
-        fields = '__all__'
-
-class CustomUserSerializer(serializers.ModelSerializer):
-    class Meta:
-        many = True
-        model = CustomUser
         fields = '__all__'
