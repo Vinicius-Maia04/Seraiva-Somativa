@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,15 +29,9 @@ SECRET_KEY = 'django-insecure-morw^n0)h@kaht+2ox=q#y2c_$(ph=64v#c^vy7lpb(z056f!t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-production_server = 'seraiva-somativa-production.up.railway.app'
+ALLOWED_HOSTS = ['localhost', '172.0.0.1', 'seraiva-somativa-production.up.railway.app']
 
-ALLOWED_HOSTS = ['*']
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://localhost',
-    '127.0.0.1',
-    'https://' + production_server,
-]
+CSRF_TRUSTED_ORIGINS = ['https://seraiva-somativa-production.up.railway.app']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True
