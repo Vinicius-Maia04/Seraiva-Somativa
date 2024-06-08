@@ -4,7 +4,7 @@
         index: {type: String}
     })
 
-    const { data: bookInformation} = await useFetch(`seraiva-somativa-production.up.railway.app/book/${prop.index}`);
+    const { data: bookInformation} = await useFetch(`https://seraiva-somativa-production.up.railway.app/book/${prop.index}`);
 </script>
 
 <template>
