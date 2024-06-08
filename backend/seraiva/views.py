@@ -9,7 +9,6 @@ from rest_framework.permissions import IsAuthenticated
 class CustomUserAPIView(ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
-    permission_classes = (IsAuthenticated,)
 
 class AuthorAPIView(ModelViewSet):
     queryset = Author.objects.all()

@@ -19,7 +19,7 @@
             .catch((error)=>{
                 console.error('Error: ', error)
                 message.value = 'Não foi possível fazer o Login!'
-                credentials.password='';
+
                 setTimeout(()=>{
                     message.value='';
                 }, 3000);
