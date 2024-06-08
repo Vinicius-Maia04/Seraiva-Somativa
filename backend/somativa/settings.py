@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-morw^n0)h@kaht+2ox=q#y2c_$(ph=64v#c^vy7lpb(z056f!t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '172.0.0.1', 'seraiva-somativa-production.up.railway.app']
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['https://seraiva-somativa-production.up.railway.app']
 
