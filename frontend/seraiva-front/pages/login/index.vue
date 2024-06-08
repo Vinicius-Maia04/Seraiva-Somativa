@@ -1,12 +1,29 @@
 <script setup lang="ts">
-    import { reactive } from 'vue';
+    import { reactive, ref } from 'vue';
+
+    const { signIn } = useAuth();
+
     const credentials = reactive({
         email: '',
         password: ''
     });
+    const message = ref('');
 
     const submitLogin = () => {
         console.log('Login: ', credentials);
+        signIn(credentials, {redirect: false})
+            .then(()=>{
+                console.log('Logado');
+                navigateTo('/');
+            })
+            .catch((error)=>{
+                console.error('Error: ', error)
+                message.value = 'Não foi possível fazer o Login!'
+                credentials.password='';
+                setTimeout(()=>{
+                    message.value='';
+                }, 3000);
+            })
     }
 
 </script>
@@ -26,8 +43,9 @@
                     </div>
                     <div class="input-container">
                         <CustomInput v-model="credentials.password" type="password" label="SENHA" inputId="pass-login"/>
+                        <p v-if="message !== ''" class="errorMessage flex-center">{{ message }}</p>
                     </div>
-                    <button @click="submitLogin" class="customButtom">Entrar</button>
+                    <button @click="submitLogin" class="customButtom" type="button">Entrar</button>
                 </form>
             </div>
         </section>
@@ -90,6 +108,10 @@
                     width: 60%;
                     .input-container{
                         margin-top: 30px;
+                    }
+
+                    .errorMessage{
+                        color: red;
                     }
                     .customButtom{
                         margin-top: 30px;

@@ -9,10 +9,12 @@ from rest_framework.permissions import IsAuthenticated
 class CustomUserAPIView(ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
+    permission_classes = (IsAuthenticated,)
 
 class AuthorAPIView(ModelViewSet):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
+    permission_classes = (IsAuthenticated,)
 
 class CategoryAPIView(ModelViewSet):
     queryset = Category.objects.all()
@@ -30,3 +32,4 @@ class BookAPIView(ModelViewSet):
 class BorrowingAPIView(ModelViewSet):
     queryset = Borrowing.objects.all()
     serializer_class = BorrowingSerializer
+    permission_classes = (IsAuthenticated,)
