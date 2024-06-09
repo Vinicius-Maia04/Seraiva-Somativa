@@ -5,14 +5,14 @@ export default defineNuxtConfig({
     typeCheck: true
   },
   modules: [
-    '@sidebase/nuxt-auth', 
+    '@sidebase/nuxt-auth',
     ],
   css:[
     '~/assets/style/global-project.scss',
     '~/assets/style/global-variables.scss'
   ],
   auth: {
-    baseURL: 'http://seraiva-somativa-production.up.railway.app',
+    baseURL: 'https://seraiva-somativa-production.up.railway.app',
     provider: {
       type: 'local',
       endpoints: {
