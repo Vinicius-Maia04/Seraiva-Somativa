@@ -1,0 +1,3 @@
+Vercel: https://seraiva-somativa.vercel.app
+
+Railway: https://seraiva-somativa-production.up.railway.app/api/auth/

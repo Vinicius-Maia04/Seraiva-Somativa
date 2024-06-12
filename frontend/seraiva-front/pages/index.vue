@@ -32,7 +32,7 @@
         background-color: var(--dark-background-color);
         margin: 0;
         width: 100vw;
-        height: 100vh;
+        height: 94.7vh;
 
         h2{
             color: white;

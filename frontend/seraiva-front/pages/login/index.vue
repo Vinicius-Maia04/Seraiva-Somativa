@@ -3,6 +3,10 @@
 
     const { signIn } = useAuth();
 
+    definePageMeta({
+        layout: 'login'
+    })
+
     const credentials = reactive({
         email: '',
         password: ''
@@ -30,6 +34,13 @@
 
 <template>
     <section class="screen-1">
+        <iframe
+            class="chatbot"
+            allow="microphone;"
+            width="350"
+            height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/3a9acb70-aacc-4d81-866d-2e0533aa67f0">
+        </iframe>
         <section class="login-panel">
             <div class="login-content flex-center" >
                 <div class="logo">
@@ -69,6 +80,13 @@
         width: 100vw;
         height: 100vh;
         background-color: var(--dark-background-color);
+
+        .chatbot{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin: 1rem;
+        }
 
         .login-panel{
         width: 25%;
